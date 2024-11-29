@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Authentication | Profile{% endblock title %}
+
+{% block content %}
+<div class="mb-5 d-flex justify-content-between w-75 mx-auto">
+    <span class="d-flex gap-5">
+        <p><a href="{% url "signin" %}">Signin</a></p>
+    <p><a href="{% url "signup" %}">Signup</a></p>
+    </span>
+    <span class="d-flex gap-2">
+        
+        <p><a href="{% url "signout" %}"><button class="btn btn-danger">Logout</button></a></p>
+    </span>
+    
+ </div>
+
+<h1 class="text-center">welcome to your profile</h1>
+<h3 class="text-primary text-center mt-5">{{user.first_name}} {{user.last_name}}</h3>
+<h3 class="text-primary text-center">{{user.email}}</h3>
+
+<div class="my-5 d-flex gap-5 justify-content-center">
+    <p><a href="{% url "change_profile" %}"><button class="btn btn-info">Change Profile</button></a></p>
+    <p><a href="{% url "changePass_without_oldPass" %}"><button class="btn btn-info">Change Password without Old Password</button></a></p>
+        <p><a href="{% url "change_password" %}"><button class="btn btn-info">Change Password</button></a></p>
+</div>
+
+{% endblock content %}

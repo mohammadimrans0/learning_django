@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Navigation | About{% endblock title %}
+
+{% block content %}
+<div class="mb-5 d-flex gap-5 mx-5">
+    <p><a href="{% url "about" %}">Navigation / About</a></p>
+    <p><a href="{% url "contact" %}">Navigation / Contact</a></p>
+</div>
+
+<h1 class="text-center mb-5">This is navigation/about page.</h1>
+{% endblock content %}

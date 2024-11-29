@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Authentication | Home{% endblock title %}
+
+{% block content %}
+<div class="mb-5 d-flex gap-5 mx-5">
+    <p><a href="{% url "signup" %}">Signup</a></p>
+    
+    {% if user.is_authenticated %}
+    <p><a href="{% url "profile" %}">Profile</a></p>
+    {% else %}
+    <p><a href="{% url "signin" %}">Signin</a></p>
+    {% endif %}
+    
+ </div>
+
+<h1 class="text-center mb-5">This is Authentication/Home page.</h1>
+
+{% endblock content %}

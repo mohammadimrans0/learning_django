@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Main Page{% endblock title %}
+
+{% block content %}
+    <h1 class="text-center mb-5">This is the main page.</h1>
+
+    <div class="mx-5">
+        <h3>Bird From Root Static File</h3>
+        <img src="{% static 'bird1.jpg' %}" alt="bird image">
+    </div>
+{% endblock content %}

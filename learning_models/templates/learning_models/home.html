@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}First_App | Home{% endblock title %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="mb-5 d-flex gap-5 mx-5">
+    <p><a href="{% url "create_student" %}">Create_Student</a></p>
+ </div>
+
+<h1 class="text-center mb-5">This is learning_models/home page.</h1>
+
+<h1 class="text-center text-primary mb-5">Students Data</h1>
+{%if studentData%}
+<table class="table table-bordered border-primary w-75 mx-auto">
+    <thead>
+      <tr>
+        <th scope="col">Roll</th>
+        <th scope="col">Student Name</th>
+        <th scope="col">Father Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for student in studentData %}
+    <tr>
+        <td>{{student.roll}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.father_name}}</td>
+        <td>{{student.address}}</td>
+        <td class="text-center">
+          <a href="{% url 'delete_student' student.roll %}">
+            <button class="rounded text-danger">Delete</button>
+          </a>
+        </td>
+    </tr>
+    {% endfor %}
+      
+    </tbody>
+  </table>
+    
+{%else%}
+    <h3>No data available to show...</h3>
+{% endif %}
+
+{% endblock content %}
